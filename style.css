@@ -105,17 +105,29 @@ header {
 }
 
 .btn-settings {
-  width: 44px; height: 44px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: var(--card);
   border: 1px solid var(--border);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
   cursor: pointer;
-  font-size: 20px;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s, transform 0.15s;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
   -webkit-tap-highlight-color: transparent;
+  z-index: 10;
 }
-.btn-settings:active { transform: scale(0.92); background: var(--surface); }
+.btn-settings:active { 
+  transform: scale(0.92); 
+  background: var(--surface); 
+  border-color: var(--water);
+}
 
 /* ── CERCLE PRINCIPAL ─────────────────────────────────────────────────────── */
 .circle-wrap {
