@@ -82,10 +82,12 @@ body {
 
 /* ── HEADER ───────────────────────────────────────────────────────────────── */
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: block;
   padding: 56px 0 24px;
+}
+
+.header-left {
+  width: 100%;
 }
 
 .header-left h1 {
@@ -93,6 +95,7 @@ header {
   font-weight: 800;
   letter-spacing: -0.5px;
   line-height: 1;
+  text-align: center;
 }
 
 .header-left h1 span { color: var(--water); }
