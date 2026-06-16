@@ -44,7 +44,7 @@ self.addEventListener('fetch', event => {
 // ── 4. NOTIFICATIONS : reçoit les messages de l'app ──────────────────────────
 self.addEventListener('message', event => {
   if (event.data && event.data.type === 'NOTIFIER') {
-    self.registration.showNotification('💧 Hydro', {
+    self.registration.showNotification('Aqua', {
       body: event.data.message || 'N\'oublie pas de boire de l\'eau !',
       icon: '/icons/icon-192.png',
       badge: '/icons/icon-192.png',

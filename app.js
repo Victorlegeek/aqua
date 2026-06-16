@@ -65,7 +65,7 @@ function rendrePage() {
 
   const liste = document.getElementById('history-list')
   if (etat.historique.length === 0) {
-    liste.innerHTML = '<div class="history-empty">Aucune entrée pour aujourd\'hui 💧</div>'
+    liste.innerHTML = '<div class="history-empty">Aucune entrée pour aujourd\'hui</div>'
   } else {
     liste.innerHTML = [...etat.historique].reverse().map((item, i) => `
       <div class="history-item">
@@ -90,11 +90,11 @@ function ajouterEau(ml) {
   sauvegarder()
   rendrePage()
 
-  afficherToast('+' + ml + ' ml ajoutés 💧')
+  afficherToast('+' + ml + ' ml ajoutés')
 
   if (etat.total >= etat.objectif && etat.total - ml < etat.objectif) {
     setTimeout(() => lancerConfettis(), 400)
-    afficherToast('🎉 Objectif atteint ! Bravo !')
+    afficherToast('Objectif atteint ! Bravo !')
   }
 }
 
@@ -139,7 +139,7 @@ async function demanderNotifications() {
     sauvegarder()
     programmerRappels()
     mettreAJourBoutonNotif()
-    afficherToast('Rappels activés ✓')
+    afficherToast('Rappels activés')
   } else {
     etat.notifActives = false
     sauvegarder()
@@ -166,11 +166,11 @@ function envoyerNotification() {
   let message = ''
 
   if (etat.total >= etat.objectif) {
-    message = '🎉 Objectif atteint ! Continue comme ça.'
+    message = 'Objectif atteint ! Continue comme ça.'
   } else if (restant > 1000) {
     message = `Tu as bu ${etat.total}ml. Il te reste ${restant}ml à boire !`
   } else {
-    message = `Plus que ${restant}ml pour atteindre ton objectif ! 💪`
+    message = `Plus que ${restant}ml pour atteindre ton objectif !`
   }
 
   if (navigator.serviceWorker && navigator.serviceWorker.controller) {
@@ -179,7 +179,7 @@ function envoyerNotification() {
       message: message
     })
   } else {
-    new Notification('💧 Hydro', {
+    new Notification('Hydro', {
       body: message,
       icon: '/icons/icon-192.png'
     })
@@ -193,13 +193,13 @@ function mettreAJourBoutonNotif() {
   const perm = Notification.permission
 
   if (perm === 'granted' && etat.notifActives) {
-    btn.textContent = '✓ Rappels activés'
+    btn.textContent = 'Rappels activés'
     btn.className = 'btn-notif active'
   } else if (perm === 'denied') {
-    btn.textContent = '🚫 Notifications bloquées (paramètres Safari)'
+    btn.textContent = 'Notifications bloquées (paramètres Safari)'
     btn.className = 'btn-notif denied'
   } else {
-    btn.textContent = '🔔 Activer les rappels'
+    btn.textContent = 'Activer les rappels'
     btn.className = 'btn-notif'
   }
 }
@@ -226,7 +226,7 @@ function sauvegarderSettings() {
   programmerRappels()
   rendrePage()
   fermerSettings()
-  afficherToast('Paramètres sauvegardés ✓')
+  afficherToast('Paramètres sauvegardés')
 }
 
 let toastTimeout = null
@@ -269,7 +269,7 @@ async function enregistrerServiceWorker() {
   if ('serviceWorker' in navigator) {
     try {
       const reg = await navigator.serviceWorker.register('/sw.js')
-      console.log('Service Worker enregistré ✓', reg)
+      console.log('Service Worker enregistré', reg)
     } catch (err) {
       console.warn('Service Worker non enregistré :', err)
     }
@@ -288,7 +288,7 @@ function planifierResetMinuit() {
     etat.dateJour = today()
     sauvegarder()
     rendrePage()
-    afficherToast('Nouveau jour ! Bonne hydratation 💧')
+    afficherToast('Nouveau jour ! Bonne hydratation')
     planifierResetMinuit() // planifier le prochain
   }, msAvantMinuit)
 }

@@ -10,23 +10,14 @@
   <meta name="theme-color" content="#f4f7fb">
   <meta name="description" content="Suis ta consommation d'eau et reçois des rappels pour rester hydraté.">
 
-  <title>Aqua 💧</title>
+  <title>Aqua</title>
 
-  <!-- Manifest PWA -->
   <link rel="manifest" href="/manifest.json">
-
-  <!-- Icône pour iOS (à créer ou mettre une image PNG bleue) -->
-  <link rel="apple-touch-icon" href="/icons/icon-180.png">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div id="splash">
-    <div class="splash-logo">💧</div>
-    <div class="splash-name">Aqua</div>
-  </div>
+
 
   <div id="toast" class="toast"></div>
 
@@ -34,7 +25,7 @@
 
     <header>
       <div class="header-left">
-        <h1>Aqua <span>💧</span></h1>
+        <h1>Aqua</h1>
         <div class="header-date" id="date-label">Chargement...</div>
       </div>
       <button class="btn-settings" onclick="ouvrirSettings()" aria-label="Paramètres"><img src="settings-icon.png" alt=""></button>
@@ -90,7 +81,7 @@
     </div>
 
     <div class="btn-custom">
-      <span style="font-size:20px;">✏️</span>
+      <span style="font-size:20px;">Quantité</span>
       <input type="number" id="custom-input" class="custom-input" 
       placeholder="Quantité en ml..." min="1" max="5000" inputmode="numeric">
       <button class="btn-add-custom" onclick="ajouterPersonnalise()">Ajouter</button>
@@ -101,14 +92,14 @@
       <button class="btn-reset" onclick="resetJour()">Réinitialiser</button>
     </div>
     <div class="history-list" id="history-list">
-      <div class="history-empty">Aucune entrée pour aujourd'hui 💧</div>
+      <div class="history-empty">Aucune entrée pour aujourd'hui</div>
     </div>
   </div>
 
   <div id="modal" class="modal-overlay">
     <div class="modal">
       <div class="modal-handle"></div>
-      <div class="modal-title">⚙️ Paramètres</div>
+      <div class="modal-title">Paramètres</div>
 
       <div class="setting-row">
         <div>
@@ -142,7 +133,7 @@
       </button>
 
       <button id="btn-notif" class="btn-notif" onclick="demanderNotifications()">
-        🔔 Activer les rappels
+        Activer les rappels
       </button>
 
     </div>
