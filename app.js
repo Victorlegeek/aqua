@@ -1,3 +1,4 @@
+import { activerPush } from "./firebase.js"
 let etat = {
   total:        0,          // ml bus aujourd'hui
   objectif:     2000,       // ml objectif
@@ -318,3 +319,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (e.key === 'Enter') ajouterPersonnalise()
   })
 })
+
+window.addEventListener("load", async () => {
+    try {
+        const token = await activerPush();
+
+        if (token) {
+            console.log("Notifications activées !");
+        }
+    } catch (e) {
+        console.error(e);
+    }
+});
